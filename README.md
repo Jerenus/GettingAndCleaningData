@@ -8,8 +8,7 @@ Download & load packages.
 
 ```{r}
 install.packages("data.table")
-install.packages("reshape2")
-packages <- c("data.table", "reshape2")
+packages <- c("data.table")
 sapply(packages, require, character.only=TRUE, quietly=TRUE)
 ```
 
