@@ -22,59 +22,67 @@ The following files are available for the train and test data. Their description
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
 
-These signals were used to estimate variables of the feature vector for each pattern:  
-------------------------------------------------------------------------------------------
-### '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+These signals were used to estimate variables of the feature vector for each pattern in the X, Y and Z directions.
+------------------------------------------------------------------------------------------
+
+* `tBodyAcc-XYZ`
+* `tGravityAcc-XYZ`
+* `tBodyAccJerk-XYZ`
+* `tBodyGyro-XYZ`
+* `tBodyGyroJerk-XYZ`
+* `tBodyAccMag`
+* `tGravityAccMag`
+* `tBodyAccJerkMag`
+* `tBodyGyroMag`
+* `tBodyGyroJerkMag`
+* `fBodyAcc-XYZ`
+* `fBodyAccJerk-XYZ`
+* `fBodyGyro-XYZ`
+* `fBodyAccMag`
+* `fBodyAccJerkMag`
+* `fBodyGyroMag`
+* `fBodyGyroJerkMag`
 
 The set of variables that were estimated from these signals are: 
----------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
-mean(): Mean value
-std(): Standard deviation
-mad(): Median absolute deviation 
-max(): Largest value in array
-min(): Smallest value in array
-sma(): Signal magnitude area
-energy(): Energy measure. Sum of the squares divided by the number of values. 
-iqr(): Interquartile range 
-entropy(): Signal entropy
-arCoeff(): Autorregresion coefficients with Burg order equal to 4
-correlation(): correlation coefficient between two signals
-maxInds(): index of the frequency component with largest magnitude
-meanFreq(): Weighted average of the frequency components to obtain a mean frequency
-skewness(): skewness of the frequency domain signal 
-kurtosis(): kurtosis of the frequency domain signal 
-bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
-angle(): Angle between to vectors.
+* `mean()`: Mean value
+* `std()`: Standard deviation
+* `mad()`: Median absolute deviation 
+* `max()`: Largest value in array
+* `min()`: Smallest value in array
+* `sma()`: Signal magnitude area
+* `energy()`: Energy measure. Sum of the squares divided by the number of values. 
+* `iqr()`: Interquartile range 
+* `entropy()`: Signal entropy
+* `arCoeff()`: Autorregresion coefficients with Burg order equal to 4
+* `correlation()`: correlation coefficient between two signals
+* `maxInds()`: index of the frequency component with largest magnitude
+* `meanFreq()`: Weighted average of the frequency components to obtain a mean frequency
+* `skewness()`: skewness of the frequency domain signal 
+* `kurtosis()`: kurtosis of the frequency domain signal 
+* `bandsEnergy()`: Energy of a frequency interval within the 64 bins of the FFT of each window.
+* `angle()`: Angle between to vectors.
 
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
-------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
-gravityMean
-tBodyAccMean
-tBodyAccJerkMean
-tBodyGyroMean
-tBodyGyroJerkMean
+* `gravityMean`
+* `tBodyAccMean`
+* `tBodyAccJerkMean`
+* `tBodyGyroMean`
+* `tBodyGyroJerkMean`
 
-### The complete list of variables of each feature vector is available in 'features.txt'
+These measurements are performed multiple times on each subject, and during several activities as stated here:
+------------------------------------------------------------------------------------------
+
+* `WALKING`: subject walking
+* `WALKING_UPSTAIRS`: subject walking up a set of stairs
+* `WALKING_DOWNSTAIRS`: subject walking down a set of stairs
+* `SITTING`: subject sitting
+* `STANDING`: subject standing
+* `LAYING`: subject laying down
 
 
 Final Tiny Dataset variable list 
@@ -82,17 +90,17 @@ Final Tiny Dataset variable list
 
 ### Variable name    
 
-subject     
-activity       
-featDomain      
-featInstrument  
-featAcceleration 
-featVariable     
-featJerk        
-featMagnitude   
-featAxis       
-featCount       
-featAverage      
+* `subject`     
+* `activity`       
+* `featDomain`      
+* `featInstrument`  
+* `featAcceleration` 
+* `featVariable`     
+* `featJerk`        
+* `featMagnitude`   
+* `featAxis`       
+* `featCount`
+* `featAverage`      
 
 Structure
 -----------------
