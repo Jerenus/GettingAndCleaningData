@@ -193,3 +193,12 @@ Creates a second, independent tidy data set with the average of each variable fo
 setkey(dt, subject, activity, featDomain, featAcceleration, featInstrument, featJerk, featMagnitude, featVariable, featAxis)
 dtTidy <- dt[, list(count = .N, average = mean(value)), by=key(dt)]
 ```
+
+
+Save to file
+------------
+
+```r
+f <- file.path(path, "tidyDataset.txt")
+write.table(dtTidy, f, quote = FALSE, sep = "\t", row.names = FALSE)
+```
