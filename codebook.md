@@ -5,24 +5,24 @@ Codebook
 #### Date: June 21, 2016
 
 
-Variable list and descriptions
+Dataset variable list 
 ------------------------------
 
-Variable name    | Description
------------------|------------
-subject          | ID the subject who performed the activity for each window sample. Its range is from 1 to 30.
-activity         | Activity name
-featDomain       | Feature: Time domain signal or frequency domain signal (Time or Freq)
-featInstrument   | Feature: Measuring instrument (Accelerometer or Gyroscope)
-featAcceleration | Feature: Acceleration signal (Body or Gravity)
-featVariable     | Feature: Variable (Mean or SD)
-featJerk         | Feature: Jerk signal
-featMagnitude    | Feature: Magnitude of the signals calculated using the Euclidean norm
-featAxis         | Feature: 3-axial signals in the X, Y and Z directions (X, Y, or Z)
-featCount        | Feature: Count of data points used to compute `average`
-featAverage      | Feature: Average of each variable for each activity and each subject
+Variable name    
+-------------
+subject     
+activity       
+featDomain      
+featInstrument  
+featAcceleration 
+featVariable     
+featJerk        
+featMagnitude   
+featAxis       
+featCount       
+featAverage      
 
-Dataset structure
+Structure
 -----------------
 
 
@@ -48,7 +48,7 @@ str(dtTidy)
 ```
 
 
-List the key variables in the data table
+Key variables
 ----------------------------------------
 
 
@@ -63,7 +63,7 @@ key(dtTidy)
 ```
 
 
-Show a few rows of the dataset
+A few rows of the dataset
 ------------------------------
 
 
@@ -99,7 +99,7 @@ dtTidy
 ```
 
 
-Summary of variables
+Summary
 --------------------
 
 
@@ -129,152 +129,4 @@ summary(dtTidy)
 ##  Mean   :57.2   Mean   :-0.4844  
 ##  3rd Qu.:63.2   3rd Qu.:-0.0784  
 ##  Max.   :95.0   Max.   : 0.9745
-```
-
-
-List all possible combinations of features
-------------------------------------------
-
-
-```r
-dtTidy[, .N, by = c(names(dtTidy)[grep("^feat", names(dtTidy))])]
-```
-
-```
-##     featDomain featAcceleration featInstrument featJerk featMagnitude
-##  1:       Time               NA      Gyroscope       NA            NA
-##  2:       Time               NA      Gyroscope       NA            NA
-##  3:       Time               NA      Gyroscope       NA            NA
-##  4:       Time               NA      Gyroscope       NA            NA
-##  5:       Time               NA      Gyroscope       NA            NA
-##  6:       Time               NA      Gyroscope       NA            NA
-##  7:       Time               NA      Gyroscope       NA     Magnitude
-##  8:       Time               NA      Gyroscope       NA     Magnitude
-##  9:       Time               NA      Gyroscope     Jerk            NA
-## 10:       Time               NA      Gyroscope     Jerk            NA
-## 11:       Time               NA      Gyroscope     Jerk            NA
-## 12:       Time               NA      Gyroscope     Jerk            NA
-## 13:       Time               NA      Gyroscope     Jerk            NA
-## 14:       Time               NA      Gyroscope     Jerk            NA
-## 15:       Time               NA      Gyroscope     Jerk     Magnitude
-## 16:       Time               NA      Gyroscope     Jerk     Magnitude
-## 17:       Time             Body  Accelerometer       NA            NA
-## 18:       Time             Body  Accelerometer       NA            NA
-## 19:       Time             Body  Accelerometer       NA            NA
-## 20:       Time             Body  Accelerometer       NA            NA
-## 21:       Time             Body  Accelerometer       NA            NA
-## 22:       Time             Body  Accelerometer       NA            NA
-## 23:       Time             Body  Accelerometer       NA     Magnitude
-## 24:       Time             Body  Accelerometer       NA     Magnitude
-## 25:       Time             Body  Accelerometer     Jerk            NA
-## 26:       Time             Body  Accelerometer     Jerk            NA
-## 27:       Time             Body  Accelerometer     Jerk            NA
-## 28:       Time             Body  Accelerometer     Jerk            NA
-## 29:       Time             Body  Accelerometer     Jerk            NA
-## 30:       Time             Body  Accelerometer     Jerk            NA
-## 31:       Time             Body  Accelerometer     Jerk     Magnitude
-## 32:       Time             Body  Accelerometer     Jerk     Magnitude
-## 33:       Time          Gravity  Accelerometer       NA            NA
-## 34:       Time          Gravity  Accelerometer       NA            NA
-## 35:       Time          Gravity  Accelerometer       NA            NA
-## 36:       Time          Gravity  Accelerometer       NA            NA
-## 37:       Time          Gravity  Accelerometer       NA            NA
-## 38:       Time          Gravity  Accelerometer       NA            NA
-## 39:       Time          Gravity  Accelerometer       NA     Magnitude
-## 40:       Time          Gravity  Accelerometer       NA     Magnitude
-## 41:       Freq               NA      Gyroscope       NA            NA
-## 42:       Freq               NA      Gyroscope       NA            NA
-## 43:       Freq               NA      Gyroscope       NA            NA
-## 44:       Freq               NA      Gyroscope       NA            NA
-## 45:       Freq               NA      Gyroscope       NA            NA
-## 46:       Freq               NA      Gyroscope       NA            NA
-## 47:       Freq               NA      Gyroscope       NA     Magnitude
-## 48:       Freq               NA      Gyroscope       NA     Magnitude
-## 49:       Freq               NA      Gyroscope     Jerk     Magnitude
-## 50:       Freq               NA      Gyroscope     Jerk     Magnitude
-## 51:       Freq             Body  Accelerometer       NA            NA
-## 52:       Freq             Body  Accelerometer       NA            NA
-## 53:       Freq             Body  Accelerometer       NA            NA
-## 54:       Freq             Body  Accelerometer       NA            NA
-## 55:       Freq             Body  Accelerometer       NA            NA
-## 56:       Freq             Body  Accelerometer       NA            NA
-## 57:       Freq             Body  Accelerometer       NA     Magnitude
-## 58:       Freq             Body  Accelerometer       NA     Magnitude
-## 59:       Freq             Body  Accelerometer     Jerk            NA
-## 60:       Freq             Body  Accelerometer     Jerk            NA
-## 61:       Freq             Body  Accelerometer     Jerk            NA
-## 62:       Freq             Body  Accelerometer     Jerk            NA
-## 63:       Freq             Body  Accelerometer     Jerk            NA
-## 64:       Freq             Body  Accelerometer     Jerk            NA
-## 65:       Freq             Body  Accelerometer     Jerk     Magnitude
-## 66:       Freq             Body  Accelerometer     Jerk     Magnitude
-##     featDomain featAcceleration featInstrument featJerk featMagnitude
-##     featVariable featAxis   N
-##  1:         Mean        X 180
-##  2:         Mean        Y 180
-##  3:         Mean        Z 180
-##  4:           SD        X 180
-##  5:           SD        Y 180
-##  6:           SD        Z 180
-##  7:         Mean       NA 180
-##  8:           SD       NA 180
-##  9:         Mean        X 180
-## 10:         Mean        Y 180
-## 11:         Mean        Z 180
-## 12:           SD        X 180
-## 13:           SD        Y 180
-## 14:           SD        Z 180
-## 15:         Mean       NA 180
-## 16:           SD       NA 180
-## 17:         Mean        X 180
-## 18:         Mean        Y 180
-## 19:         Mean        Z 180
-## 20:           SD        X 180
-## 21:           SD        Y 180
-## 22:           SD        Z 180
-## 23:         Mean       NA 180
-## 24:           SD       NA 180
-## 25:         Mean        X 180
-## 26:         Mean        Y 180
-## 27:         Mean        Z 180
-## 28:           SD        X 180
-## 29:           SD        Y 180
-## 30:           SD        Z 180
-## 31:         Mean       NA 180
-## 32:           SD       NA 180
-## 33:         Mean        X 180
-## 34:         Mean        Y 180
-## 35:         Mean        Z 180
-## 36:           SD        X 180
-## 37:           SD        Y 180
-## 38:           SD        Z 180
-## 39:         Mean       NA 180
-## 40:           SD       NA 180
-## 41:         Mean        X 180
-## 42:         Mean        Y 180
-## 43:         Mean        Z 180
-## 44:           SD        X 180
-## 45:           SD        Y 180
-## 46:           SD        Z 180
-## 47:         Mean       NA 180
-## 48:           SD       NA 180
-## 49:         Mean       NA 180
-## 50:           SD       NA 180
-## 51:         Mean        X 180
-## 52:         Mean        Y 180
-## 53:         Mean        Z 180
-## 54:           SD        X 180
-## 55:           SD        Y 180
-## 56:           SD        Z 180
-## 57:         Mean       NA 180
-## 58:           SD       NA 180
-## 59:         Mean        X 180
-## 60:         Mean        Y 180
-## 61:         Mean        Z 180
-## 62:           SD        X 180
-## 63:           SD        Y 180
-## 64:           SD        Z 180
-## 65:         Mean       NA 180
-## 66:           SD       NA 180
-##     featVariable featAxis   N
 ```
