@@ -86,7 +86,7 @@ These measurements are performed multiple times on each subject, and during seve
 
 
 Final Tiny Dataset variable list 
-------------------------------
+================================
 
 ### Variable name    
 
