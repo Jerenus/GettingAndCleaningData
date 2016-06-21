@@ -19,7 +19,7 @@ packages <- c("data.table")
 sapply(packages, require, character.only=TRUE, quietly=TRUE)
 ```
 
-2, Put the "[run_analysis.R]https://github.com/Jerenus/GettingAndCleaningData/blob/master/run_analysis.R" file at the same floder which "UCI HAR Dataset" folder is exsting, then make them at the same level
+2, Put the "[run_analysis.R](https://github.com/Jerenus/GettingAndCleaningData/blob/master/run_analysis.R)" file at the same floder which "UCI HAR Dataset" folder is exsting, then make them at the same level
 -------------------------------------------------------------------------------------------
 
 ```{r}
