@@ -279,9 +279,6 @@ dtTidy[, .N, by = c(names(dtTidy)[grep("^feat", names(dtTidy))])]
 Save to file
 ------------
 
-Save data table objects to a tab-delimited text file called `DatasetHumanActivityRecognitionUsingSmartphones.txt`.
-
-
 ```r
 f <- file.path(path, "tidyDataset.txt")
 write.table(dtTidy, f, quote = FALSE, sep = "\t", row.names = FALSE)
