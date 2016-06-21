@@ -4,25 +4,20 @@ Peer Graded Assignment: Getting and Cleaning Data Course Project
 Preliminaries
 -------------
 
-Load packages.
+Download & load packages.
 
 ```{r}
+install.packages("data.table")
+install.packages("reshape2")
 packages <- c("data.table", "reshape2")
 sapply(packages, require, character.only=TRUE, quietly=TRUE)
 ```
 
-Set path.
+Set the root folder as the path.
 
 ```{r}
 path <- getwd()
-path
-```
-
-The archive put the files in a folder named `UCI HAR Dataset`. Set this folder as the input path. List the files here.
-
-```{r}
 path <- file.path(path, "UCI HAR Dataset")
-list.files(path, recursive=TRUE)
 ```
 
 Read the files
@@ -35,14 +30,15 @@ dtSubjectTrain <- fread(file.path(path, "train", "subject_train.txt"))
 dtSubjectTest  <- fread(file.path(path, "test" , "subject_test.txt" ))
 ```
 
-Read the activity files. For some reason, these are called *label* files in the `README.txt` documentation.
+Read the activity files.
 
 ```{r}
 dtActivityTrain <- fread(file.path(path, "train", "Y_train.txt"))
 dtActivityTest  <- fread(file.path(path, "test" , "Y_test.txt" ))
 ```
 
-Read the data files. `fread` seems to be giving me some trouble reading files. Using a helper function, read the file with `read.table` instead, then convert the resulting data frame to a data table. Return the data table.
+
+Read the activity files to be data table.
 
 ```{r fileToDataTable}
 fileToDataTable <- function (f) {
@@ -54,7 +50,7 @@ dtTest  <- fileToDataTable(file.path(path, "test" , "X_test.txt" ))
 ```
 
 
-Merge the training and the test sets
+Merges the training and the test sets to create one data set
 ------------------------------------
 
 Concatenate the data tables.
@@ -81,13 +77,14 @@ setkey(dt, subject, activityNum)
 ```
 
 
-Extract only the mean and standard deviation
+Extracts only the measurements on the mean and standard deviation for each measurement
 --------------------------------------------
 
 Read the `features.txt` file. This tells which variables in `dt` are measurements for the mean and standard deviation.
 
 ```{r}
 dtFeatures <- fread(file.path(path, "features.txt"))
+dtFeatures
 setnames(dtFeatures, names(dtFeatures), c("featureNum", "featureName"))
 ```
 
@@ -113,7 +110,7 @@ dt <- dt[, select, with=FALSE]
 ```
 
 
-Use descriptive activity names
+Uses descriptive activity names to name the activities in the data set
 ------------------------------
 
 Read `activity_labels.txt` file. This will be used to add descriptive names to the activities.
@@ -124,7 +121,7 @@ setnames(dtActivityNames, names(dtActivityNames), c("activityNum", "activityName
 ```
 
 
-Label with descriptive activity names
+Appropriately labels the data set with descriptive activity names.
 -----------------------------------------------------------------
 
 Merge activity labels.
@@ -206,11 +203,4 @@ Create a data set with the average of each variable for each activity and each s
 ```{r}
 setkey(dt, subject, activity, featDomain, featAcceleration, featInstrument, featJerk, featMagnitude, featVariable, featAxis)
 dtTidy <- dt[, list(count = .N, average = mean(value)), by=key(dt)]
-```
-
-Make codebook.
-
-```{r}
-knit("makeCodebook.Rmd", output="codebook.md", encoding="ISO8859-1", quiet=TRUE)
-markdownToHTML("codebook.md", "codebook.html")
 ```
