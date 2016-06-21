@@ -85,22 +85,9 @@ These measurements are performed multiple times on each subject, and during seve
 * `LAYING`: subject laying down
 
 
-Final Tiny Dataset variable list 
+Final Tiny Dataset
 ================================
-
-### Variable name    
-
-* `subject`     
-* `activity`       
-* `featDomain`      
-* `featInstrument`  
-* `featAcceleration` 
-* `featVariable`     
-* `featJerk`        
-* `featMagnitude`   
-* `featAxis`       
-* `featCount`
-* `featAverage`      
+ 
 
 Structure
 -----------------
