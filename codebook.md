@@ -283,7 +283,7 @@ Save data table objects to a tab-delimited text file called `DatasetHumanActivit
 
 
 ```r
-f <- file.path(path, "DatasetHumanActivityRecognitionUsingSmartphones.txt")
+f <- file.path(path, "tidyDataset.txt")
 write.table(dtTidy, f, quote = FALSE, sep = "\t", row.names = FALSE)
 ```
 
