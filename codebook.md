@@ -274,13 +274,3 @@ dtTidy[, .N, by = c(names(dtTidy)[grep("^feat", names(dtTidy))])]
 ## 66:           SD       NA 180
 ##     featVariable featAxis   N
 ```
-
-
-Save to file
-------------
-
-```r
-f <- file.path(path, "tidyDataset.txt")
-write.table(dtTidy, f, quote = FALSE, sep = "\t", row.names = FALSE)
-```
-
