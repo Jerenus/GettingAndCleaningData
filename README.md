@@ -140,11 +140,6 @@ Melt the data table to reshape it from a short and wide format to a tall and nar
 
 ```{r}
 dt <- data.table(melt(dt, key(dt), variable.name="featureCode"))
-```
-
-Merge activity name.
-
-```{r}
 dt <- merge(dt, dtFeatures[, list(featureNum, featureCode, featureName)], by="featureCode", all.x=TRUE)
 ```
 
@@ -191,14 +186,9 @@ r2 <- nrow(dt[, .N, by=c("featDomain", "featAcceleration", "featInstrument", "fe
 r1 == r2
 ```
 
-Yes, I accounted for all possible combinations. `feature` is now redundant.
 
-
-
-Create a tidy data set
+Creates a second, independent tidy data set with the average of each variable for each activity and each subject
 ----------------------
-
-Create a data set with the average of each variable for each activity and each subject.
 
 ```{r}
 setkey(dt, subject, activity, featDomain, featAcceleration, featInstrument, featJerk, featMagnitude, featVariable, featAxis)
