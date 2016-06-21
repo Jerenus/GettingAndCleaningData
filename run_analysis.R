@@ -1,8 +1,3 @@
-## Preliminaries Download & load packages.
-install.packages("data.table")
-packages <- c("data.table")
-sapply(packages, require, character.only=TRUE, quietly=TRUE)
-
 ## Set the path
 path <- getwd()
 path <- file.path(path, "UCI HAR Dataset")
