@@ -40,7 +40,8 @@ Go inside the root folder and run "run_analysis.R" file.
 ---------------------------------------------------------
 
 ```{r}
-"UCI HAR Dataset"
-- "tidyDataset.txt"
+root_folder
+- "UCI HAR Dataset"
+-- "tidyDataset.txt"
 ```
 
